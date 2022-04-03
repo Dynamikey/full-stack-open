@@ -1,0 +1,9 @@
+title Getting notes on SPA
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-page
+
+note over browser:
+browser manipulates HTML-page contents 
+with JavaScript then executes it
+end note

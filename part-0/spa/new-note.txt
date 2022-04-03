@@ -1,0 +1,14 @@
+title Creating a new note on SPA
+
+note over browser:
+browser executes the event handler 
+to handle the form submit
+end note
+note over browser:
+event handler create the new note
+end note
+note over browser:
+browser renders notes to display
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa { content: "single page app does not reload the whole page", date: "2019-05-25T15:15:59.905Z"}
+server-->browser: Status code 201
