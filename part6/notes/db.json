@@ -1,0 +1,79 @@
+{
+  "notes": [
+    {
+      "content": "the app state is in redux store",
+      "important": true,
+      "id": 1
+    },
+    {
+      "content": "state changes are made with actions",
+      "important": false,
+      "id": 2
+    },
+    {
+      "content": "hello",
+      "important": false,
+      "id": 3
+    },
+    {
+      "content": "yo",
+      "important": true,
+      "id": 4
+    },
+    {
+      "content": "hi",
+      "important": true,
+      "id": 5
+    },
+    {
+      "content": "yo",
+      "important": false,
+      "id": 6
+    },
+    {
+      "content": "hello ",
+      "important": false,
+      "id": 7
+    },
+    {
+      "content": "what's up",
+      "important": false,
+      "id": 8
+    },
+    {
+      "content": "helo",
+      "important": false,
+      "id": 9
+    },
+    {
+      "content": "wgats up",
+      "important": true,
+      "id": 10
+    },
+    {
+      "content": "yes",
+      "important": false,
+      "id": 11
+    },
+    {
+      "content": "hello",
+      "important": true,
+      "id": 12
+    },
+    {
+      "content": "wiw",
+      "important": false,
+      "id": 13
+    },
+    {
+      "content": "ok",
+      "important": true,
+      "id": 14
+    },
+    {
+      "content": "not bad",
+      "important": true,
+      "id": 15
+    }
+  ]
+}
