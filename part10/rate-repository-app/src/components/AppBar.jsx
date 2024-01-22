@@ -2,6 +2,8 @@ import { View, StyleSheet } from "react-native";
 import Text from "./Text";
 import Constants from "expo-constants";
 import theme from "../theme";
+import { Link } from "react-router-native";
+import { TouchableWithoutFeedback } from "react-native-web";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,21 +20,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ text }) => {
+const AppBarTab = ({ link, text }) => {
   return (
-    <View>
+    <Link to={link} component={<TouchableWithoutFeedback />}>
       <Text fontSize="subHeading" fontWeight="bold" style={styles.tab}>
         {text}
       </Text>
-    </View>
+    </Link>
   );
 };
 
 const AppBar = () => {
   return (
     <View style={styles.container}>
-      <AppBarTab text="Repositories" />
-      <AppBarTab text="Another tab name" />
+      <AppBarTab link="*" text="Repositories" />
+      <AppBarTab link="signin" text="SignIn" />
     </View>
   );
 };
