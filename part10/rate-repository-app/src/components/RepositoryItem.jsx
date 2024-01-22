@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingLeft: 10,
     justifyContent: "space-around",
+    alignItems: "flex-start",
   },
   tabStats: {
     alignItems: "center",
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
     color: "white",
     padding: 5,
-    borderRadius: 4,
+    borderRadius: 5,
   },
   image: {
     width: 50,
@@ -59,9 +60,7 @@ const RepositoryItem = ({ item }) => {
         <View style={styles.tab}>
           <Text fontWeight="bold">{item.fullName}</Text>
           <Text>{item.description}</Text>
-          <View style={{ flexDirection: "row" }}>
-            <Text style={styles.languageLogo}>{item.language}</Text>
-          </View>
+          <Text style={styles.languageLogo}>{item.language}</Text>
         </View>
       </View>
       <View style={styles.containerStats}>
