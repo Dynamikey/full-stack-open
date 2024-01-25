@@ -3,6 +3,7 @@ import FormikTextInput from "./FormikTextInput";
 import Text from "./Text";
 import { Formik } from "formik";
 import theme from "../theme";
+import * as yup from "yup";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +16,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderWidth: 1,
     borderRadius: 5,
-    borderColor: "grey",
   },
   signInButton: {
     marginHorizontal: 25,
@@ -56,13 +56,25 @@ const initialValues = {
   password: "",
 };
 
+const validationSchema = yup.object().shape({
+  username: yup.string().required(),
+  password: yup
+    .string()
+    .min(8, "password needs to be at least 8 characters")
+    .required(),
+});
+
 const SignIn = () => {
   const onSubmit = (values) => {
     console.log(values);
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+    >
       {({ handleSubmit }) => <SignInForm onSubmit={handleSubmit} />}
     </Formik>
   );
