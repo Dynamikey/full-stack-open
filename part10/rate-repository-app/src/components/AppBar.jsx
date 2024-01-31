@@ -4,6 +4,8 @@ import Constants from "expo-constants";
 import theme from "../theme";
 import { Link } from "react-router-native";
 import { ScrollView, TouchableWithoutFeedback } from "react-native-web";
+import useCurrentUser from "../hooks/useCurrentUser";
+import useSignOut from "../hooks/useSignOut";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,9 +22,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppBarTab = ({ link, text }) => {
+const AppBarTab = ({ link, text, onPress }) => {
   return (
-    <Link to={link} component={<TouchableWithoutFeedback />}>
+    <Link to={link} component={<TouchableWithoutFeedback />} onPress={onPress}>
       <Text fontSize="subHeading" fontWeight="bold" style={styles.tab}>
         {text}
       </Text>
@@ -31,12 +33,17 @@ const AppBarTab = ({ link, text }) => {
 };
 
 const AppBar = () => {
+  const { isLoggedIn } = useCurrentUser();
+  const [signOut] = useSignOut();
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
         <AppBarTab link="*" text="Repositories" />
-        <AppBarTab link="signin" text="Sign In" />
-        <AppBarTab text="test" />
+        {!isLoggedIn && <AppBarTab link="signin" text="Sign In" />}
+        {isLoggedIn && (
+          <AppBarTab link="/" text="Sign Out" onPress={() => signOut()} />
+        )}
         <AppBarTab text="test 2" />
         <AppBarTab text="test 3" />
         <AppBarTab text="test 4" />
