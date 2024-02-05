@@ -1,6 +1,9 @@
-import { StyleSheet, FlatList, View } from "react-native";
+import { StyleSheet, FlatList, View, Pressable } from "react-native";
 import RepositoryItem from "./RepositoryItem";
 import useRepositories from "../hooks/useRepositories";
+import { useNavigate } from "react-router-native";
+import { useEffect, useState } from "react";
+import TouchableRepositoryItem from "./TouchableRepositoryItem";
 
 const styles = StyleSheet.create({
   separator: {
@@ -21,7 +24,7 @@ const RepositoryList = () => {
     <FlatList
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
-      renderItem={({ item }) => <RepositoryItem item={item} />}
+      renderItem={({ item }) => <TouchableRepositoryItem item={item} />}
     />
   );
 };

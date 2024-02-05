@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import Text from "./Text";
 import theme from "../theme";
 
@@ -50,24 +50,33 @@ const RepositoryItemStat = ({ name, stat }) => {
   );
 };
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({
+  ownerAvatarUrl,
+  fullName,
+  description,
+  language,
+  stargazersCount,
+  forksCount,
+  reviewCount,
+  ratingAverage,
+}) => {
   return (
     <View style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
         <View style={styles.tab}>
-          <Text style={styles.image}>Image</Text>
+          <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
         </View>
         <View style={styles.tab}>
-          <Text fontWeight="bold">{item.fullName}</Text>
-          <Text>{item.description}</Text>
-          <Text style={styles.languageLogo}>{item.language}</Text>
+          <Text fontWeight="bold">{fullName}</Text>
+          <Text>{description}</Text>
+          <Text style={styles.languageLogo}>{language}</Text>
         </View>
       </View>
       <View style={styles.containerStats}>
-        <RepositoryItemStat name="Stars" stat={item.stargazersCount} />
-        <RepositoryItemStat name="Forks" stat={item.forksCount} />
-        <RepositoryItemStat name="Reviews" stat={item.reviewCount} />
-        <RepositoryItemStat name="Rating" stat={item.ratingAverage} />
+        <RepositoryItemStat name="Stars" stat={stargazersCount} />
+        <RepositoryItemStat name="Forks" stat={forksCount} />
+        <RepositoryItemStat name="Reviews" stat={reviewCount} />
+        <RepositoryItemStat name="Rating" stat={ratingAverage} />
       </View>
     </View>
   );

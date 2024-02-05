@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 export const CORE_REPOSITORY_FIELDS = gql`
   fragment CoreRepositoryFields on Repository {
+    id
     fullName
     forksCount
     description
@@ -9,5 +10,6 @@ export const CORE_REPOSITORY_FIELDS = gql`
     ratingAverage
     reviewCount
     stargazersCount
+    ownerAvatarUrl
   }
 `;
