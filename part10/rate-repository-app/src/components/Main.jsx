@@ -23,7 +23,7 @@ const FetchRepositoryItem = () => {
   if (loading) {
     return <Loader loading />;
   }
-  return <RepositoryItem {...repository} />;
+  return <RepositoryItem singleItem {...repository} />;
 };
 
 const Main = () => {

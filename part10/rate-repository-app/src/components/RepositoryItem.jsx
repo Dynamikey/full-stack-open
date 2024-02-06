@@ -1,6 +1,9 @@
 import { View, StyleSheet, Image } from "react-native";
 import Text from "./Text";
 import theme from "../theme";
+import { Button } from "react-native";
+import { Pressable } from "react-native";
+import * as Linking from "expo-linking";
 
 const styles = StyleSheet.create({
   container: {
@@ -32,6 +35,16 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  button: {
+    backgroundColor: theme.colors.primary,
+    borderRadius: 3,
+    margin: 10,
+  },
+  buttonText: {
+    color: "white",
+    alignSelf: "center",
+    padding: 15,
+  },
 });
 
 const formatNumber = (number) => {
@@ -59,6 +72,8 @@ const RepositoryItem = ({
   forksCount,
   reviewCount,
   ratingAverage,
+  url,
+  singleItem,
 }) => {
   return (
     <View style={{ backgroundColor: "white" }}>
@@ -78,6 +93,15 @@ const RepositoryItem = ({
         <RepositoryItemStat name="Reviews" stat={reviewCount} />
         <RepositoryItemStat name="Rating" stat={ratingAverage} />
       </View>
+      {singleItem && (
+        <View>
+          <Pressable style={styles.button} onPress={() => Linking.openURL(url)}>
+            <Text style={styles.buttonText} fontWeight="bold">
+              Open in GitHub
+            </Text>
+          </Pressable>
+        </View>
+      )}
     </View>
   );
 };
