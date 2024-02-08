@@ -8,7 +8,7 @@ import * as Linking from "expo-linking";
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    height: 100,
+    padding: 10,
   },
   containerStats: {
     flexDirection: "row",
@@ -16,11 +16,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 50,
   },
+  imageTab: {
+    marginRight: 15,
+  },
   tab: {
-    paddingTop: 10,
-    paddingLeft: 10,
+    gap: 8,
     justifyContent: "space-around",
     alignItems: "flex-start",
+    flex: 1,
   },
   tabStats: {
     alignItems: "center",
@@ -78,7 +81,7 @@ const RepositoryItem = ({
   return (
     <View style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
-        <View style={styles.tab}>
+        <View style={styles.imageTab}>
           <Image style={styles.image} source={{ uri: ownerAvatarUrl }} />
         </View>
         <View style={styles.tab}>

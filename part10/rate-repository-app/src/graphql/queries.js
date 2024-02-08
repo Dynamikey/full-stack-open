@@ -22,6 +22,20 @@ export const GET_REPOSITORY = gql`
       fullName
       url
       ...CoreRepositoryFields
+      reviews {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
     }
   }
 `;

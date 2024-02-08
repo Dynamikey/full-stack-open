@@ -9,6 +9,8 @@ import RepositoryItem from "./RepositoryItem";
 import { useEffect, useState } from "react";
 import useRepository from "../hooks/useRepository";
 import Loader from "./Loader";
+import SingleRepository from "./SingleRepository";
+import CreateReview from "./CreateReview";
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +25,7 @@ const FetchRepositoryItem = () => {
   if (loading) {
     return <Loader loading />;
   }
-  return <RepositoryItem singleItem {...repository} />;
+  return <SingleRepository {...repository} />;
 };
 
 const Main = () => {
@@ -37,6 +39,7 @@ const Main = () => {
           path="/repository/:repositoryId"
           element={<FetchRepositoryItem />}
         />
+        <Route path="/createreview" element={<CreateReview />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </View>

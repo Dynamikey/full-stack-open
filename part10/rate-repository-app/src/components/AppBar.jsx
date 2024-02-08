@@ -41,10 +41,10 @@ const AppBar = () => {
       <ScrollView horizontal>
         <AppBarTab link="*" text="Repositories" />
         {!isLoggedIn && <AppBarTab link="signin" text="Sign In" />}
+        {isLoggedIn && <AppBarTab link="/createreview" text="Create Review" />}
         {isLoggedIn && (
           <AppBarTab link="/" text="Sign Out" onPress={() => signOut()} />
         )}
-        <AppBarTab text="test 2" />
         <AppBarTab text="test 3" />
         <AppBarTab text="test 4" />
         <AppBarTab text="test 5" />
